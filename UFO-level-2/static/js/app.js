@@ -24,35 +24,33 @@ function HandleClick()
   // Get filter value. Store in InFilter array
     InFilterVal = getFilterValue();
     FilterItem = getElementID();
-    //console.log(FilterItem);
-    //console.log(InFilterVal);
+
     // Initialize the filter table with the original table
     var filteredData = tableData; 
 
-    //filteredData = filteredData.filter(row => row.`${FilterItem[0]}` === InFilter[0]);
-   // InFilterVal.forEach(val => console.log(val));
     for (var i =0; i< InFilterVal.length; i++){
-      filteredData = filterTable(filteredData, FilterItem[i], InFilterVal[i]);
-
+      if (InFilterVal[i] !== ""){
+        filteredData = filterTable(filteredData, FilterItem[i], InFilterVal[i]);
+      }
     }
-    build_table(filteredData);
-    //filteredData = filterTable(filteredData, FilterItem[0], InFilterVal[0]);
 
-   // InFilter.forEach(f => console.log(f));
-    
-
-    //console.log(filteredData.date);
     // Check if the filtered table has data
     // If no data, send a warning and reset the page
-    // if (filteredData.length == 0 ){
-    //   alert("Date not found!\nEnter a new date between 1/1/2010 and 1/13/2010");
-    //   document.getElementById("datetime").value="1/1/2010";
-    //   build_table(tableData);
-    // }
-    // // else show the filtered data
-    // else {
-    //   build_table(filteredData);
-    // }
+    if (filteredData.length == 0 ){
+      alert("No data found.\nPlease check your input.");
+
+      // reset input field
+      document.getElementById("datetime").value="1/1/2010";
+      document.getElementById("city").value="benton";
+      document.getElementById("state").value="ar";
+      document.getElementById("country").value="us";
+      document.getElementById("shape").value="circle";
+      build_table(tableData);
+    }
+    // else show the filtered data
+    else {
+      build_table(filteredData);
+    }
 }
 
 // Get all ID for filter"form-control" (i.e get filter id)
@@ -83,7 +81,9 @@ function getFilterValue(){
 }
 
 function filterTable(table, filterKey, FilterValue){
-  //filteredTable = [];
+
+  FilterValue =  FilterValue.toLowerCase();
+
   console.log(filterKey, FilterValue);
   if (filterKey == "datetime"){
     filteredTable = table.filter(row => row.datetime === FilterValue);
@@ -92,7 +92,20 @@ function filterTable(table, filterKey, FilterValue){
   if (filterKey == "city"){
     filteredTable = table.filter(row => row.city === FilterValue);
   }
-  //build_table(filteredData);
+  
+  if (filterKey == "state"){
+    filteredTable = table.filter(row => row.state === FilterValue);
+  }
+
+  if (filterKey == "country"){
+    filteredTable = table.filter(row => row.country === FilterValue);
+  }
+
+  if (filterKey == "shape"){
+    filteredTable = table.filter(row => row.shape === FilterValue);
+  }
+
+
   return filteredTable;
 }
 
