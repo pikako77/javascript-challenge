@@ -20,8 +20,7 @@ function build_table(varList)
 
 function HandleClick()
 { // Define the filter actions
-  setFilterSelection_date();
-
+  
   // Get filter value. Store in InFilter array
     InFilterVal = getFilterValue();
     FilterItem = getElementID();
@@ -75,7 +74,6 @@ function getFilterValue(){
     //filterItem.push("#"+formID[i].value);
     var id = "#"+formID[i];
     var val = d3.select(id).property("value");
-
     filterItem.push(val);
   }
 
@@ -111,20 +109,42 @@ function filterTable(table, filterKey, FilterValue){
   return filteredTable;
 }
 
-function setFilterSelection_date(){
+
+//// dropdowns
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  
+
+  dropDown_getDate();
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+
+function dropDown_getDate(){
   var list_option = [] ; 
-  //var cleaned_list= [] ;
+  var frag = document.createDocumentFragment();
+  var select = document.createElement("select"); 
+
+  var myDiv = document.getElementById("datetime");
+
   for (var i=0; i< data.length; i++)
   {
     list_option.push(data[i].datetime);
   }
   let cleaned_list = [...new Set(list_option)];
-  // for (var i=0; i< cleaned_list.length; i++)
-  // {
-  //   console.log(cleaned_list[i]);
-  // }
 
   
+  
+  for (var i = 0; i< cleaned_list.length; i++)
+  {
+    select.options.add( new Option(cleaned_list[i],cleaned_list[i], true, true) ) ;
+    console.log(select[i]);
+  }
+  
+  var select = document.createElement("select"); 
+  
+
 }
 ////////////////////
 // Main

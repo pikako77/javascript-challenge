@@ -33,11 +33,12 @@
               <div class="panel-heading">Filter Search</div>
               <div class="panel-body">
                 <form>
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                     <ul class="list-group" id="filters">
 
                       <li class="filter list-group-item">
-                        <label for="date">Enter a Date</label>
+                        
+                        <div id="datetime" >Enter data</div>
                         <input class="form-control" id="datetime" type="text" placeholder="1/1/2010">
                       </li>
 
@@ -62,6 +63,22 @@
                         </li>   
                         
                       </ul>
+
+
+                  </div> -->
+
+                  <div class="dropdown">
+                    <button onclick="myFunction()" class="dropbtn">Date</button>
+                    <div id="myDropdown" class="dropdown-content">
+                      <input type="text" placeholder="1/1/2010" id="datetime" onkeyup="filterFunction()">
+                      <a >1/1/2010</a>
+                      <!-- <a href="#base">Base</a>
+                      <a href="#blog">Blog</a>
+                      <a href="#contact">Contact</a>
+                      <a href="#custom">Custom</a>
+                      <a href="#support">Support</a>
+                      <a href="#tools">Tools</a> -->
+                    </div>
                   </div>
                   <button id="filter-btn" type="button" class="btn btn-default">Filter Table</button>
                 </form>
