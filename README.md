@@ -2,7 +2,7 @@
 ## Homework for JavaScript
 ##
 <p align="center">
-    <img src="Image/UFO.jpg" width="400">
+    <img src="Image/UFO.jpg" width="500">
   </p>
   
 ### Objectives:
@@ -22,7 +22,8 @@ Create a table dynamically using dataset provided. Data are vizualized in a webp
 
 
 #### Level1
-Data are filter using the date. Users enter the target date in input box. 
+Data are filter using the date. Users enter the target date in input box.
+<br>Default value is set as "placeholder". </br> 
 An example is shown below for "1/2/2010": 
 <p align="center">
     <img src="Image/Level1.PNG">
@@ -31,6 +32,7 @@ An example is shown below for "1/2/2010":
   
 #### Level2
 Data are filter using date, city, state, country and shape. Similarly to level 1, users enter the filter values in input boxes. 
+<br>Default value are set as "placeholder". </br>
 An example is shown below for {date: "1/2/2010" && city:"orange"} : 
 <p align="center">
     <img src="Image/Level2.PNG">
